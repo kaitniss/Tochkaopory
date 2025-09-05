@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Точка.Опоры — персональные консультации и обучение для ясности и решений</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#D32F2F',
+                        'brand-red-hover': '#B71C1C',
+                        'brand-gray': '#757575'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .red-dot {
+            color: #D32F2F;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-white text-black smooth-scroll">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-semibold">Точка</span>
+                    <span class="red-dot text-2xl font-bold mx-1">•</span>
+                    <span class="text-2xl font-semibold">Опоры</span>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-brand-gray hover:text-black transition-colors">Услуги</a>
+                    <a href="#results" class="text-brand-gray hover:text-black transition-colors">Результаты</a>
+                    <a href="#about" class="text-brand-gray hover:text-black transition-colors">Обо мне</a>
+                    <a href="#contact" class="text-brand-gray hover:text-black transition-colors">Контакты</a>
+                    <button onclick="scrollToContact()" class="bg-brand-red text-white px-6 py-2 rounded hover:bg-brand-red-hover transition-colors font-medium">
+                        Записаться
+                    </button>
+                </nav>
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-16 left-0 w-full bg-white shadow-lg z-40 hidden">
+        <div class="px-4 py-4 space-y-4">
+            <a href="#services" class="block text-brand-gray">Услуги</a>
+            <a href="#results" class="block text-brand-gray">Результаты</a>
+            <a href="#about" class="block text-brand-gray">Обо мне</a>
+            <a href="#contact" class="block text-brand-gray">Контакты</a>
+            <button onclick="scrollToContact()" class="w-full bg-brand-red text-white px-6 py-2 rounded hover:bg-brand-red-hover transition-colors font-medium">
+                Записаться
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h1 class="text-4xl md:text-5xl font-light leading-tight mb-6">
+                        Точка<span class="red-dot">•</span>Опоры — персональные консультации и обучение для <span class="font-medium">ясности и решений</span>
+                    </h1>
+                    <p class="text-xl text-brand-gray mb-8 leading-relaxed">
+                        Без лишнего мистицизма. С методикой и результатом
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <button onclick="scrollToContact()" class="bg-brand-red text-white px-8 py-4 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                            Записаться на консультацию
+                        </button>
+                        <button onclick="scrollToServices()" class="border border-brand-gray text-brand-gray px-8 py-4 rounded font-medium hover:border-black hover:text-black transition-colors">
+                            Посмотреть обучение
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-6 text-sm text-brand-gray">
+                        <span class="flex items-center">
+                            <span class="red-dot mr-2">•</span>
+                            Авторский проект
+                        </span>
+                        <span class="flex items-center">
+                            <span class="red-dot mr-2">•</span>
+                            Индивидуальная работа
+                        </span>
+                        <span class="flex items-center">
+                            <span class="red-dot mr-2">•</span>
+                            Этичный подход
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="w-80 h-80 mx-auto bg-gray-50 rounded-full flex items-center justify-center">
+                        <span class="text-8xl red-dot">•</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-light text-center mb-12">Как это работает</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-red text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-medium mb-3">Запрос</h3>
+                    <p class="text-brand-gray">Обсуждаем вашу ситуацию и формулируем четкий запрос</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-red text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-medium mb-3">Сессия</h3>
+                    <p class="text-brand-gray">60–90 минут структурированной работы с вашим запросом</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-red text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-medium mb-3">План действий</h3>
+                    <p class="text-brand-gray">Конкретные шаги и рекомендации для достижения результата</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-brand-gray mb-4">WhatsApp/Telegram — на связи до и после сессии</p>
+                <button onclick="scrollToContact()" class="bg-brand-red text-white px-8 py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                    Обсудить ваш запрос
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results/Cases -->
+    <section id="results" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-light text-center mb-12">Результаты работы</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border-l-4 border-brand-red pl-6">
+                    <h3 class="font-medium mb-2">Карьерный выбор</h3>
+                    <p class="text-brand-gray mb-3"><strong>Запрос:</strong> Не могу выбрать между двумя предложениями о работе</p>
+                    <p class="text-brand-gray mb-3"><strong>Работа:</strong> Структурированный анализ приоритетов и ценностей</p>
+                    <p class="text-black"><strong>Результат:</strong> Принято осознанное решение, через 3 месяца — повышение</p>
+                </div>
+                <div class="border-l-4 border-brand-red pl-6">
+                    <h3 class="font-medium mb-2">Отношения</h3>
+                    <p class="text-brand-gray mb-3"><strong>Запрос:</strong> Повторяющиеся конфликты в семье</p>
+                    <p class="text-brand-gray mb-3"><strong>Работа:</strong> Выявление паттернов и работа с границами</p>
+                    <p class="text-black"><strong>Результат:</strong> Улучшение коммуникации, снижение напряжения</p>
+                </div>
+                <div class="border-l-4 border-brand-red pl-6">
+                    <h3 class="font-medium mb-2">Бизнес-решение</h3>
+                    <p class="text-brand-gray mb-3"><strong>Запрос:</strong> Стоит ли расширять бизнес в кризис</p>
+                    <p class="text-brand-gray mb-3"><strong>Работа:</strong> Анализ рисков через систему Таро Тота</p>
+                    <p class="text-black"><strong>Результат:</strong> Найден оптимальный момент, рост прибыли на 40%</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button onclick="scrollToContact()" class="bg-brand-red text-white px-8 py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                    Обсудить ваш запрос
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-light text-center mb-12">Услуги</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-xl font-medium mb-4">Консультации</h3>
+                    <p class="text-brand-gray mb-6">Индивидуальная работа с личными и профессиональными запросами</p>
+                    <div class="text-2xl font-light mb-4">от 3000 ₽</div>
+                    <button onclick="openBookingModal('consultation')" class="w-full bg-brand-red text-white py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                        Записаться
+                    </button>
+                </div>
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-xl font-medium mb-4">Коучинг</h3>
+                    <p class="text-brand-gray mb-6">Достижение конкретных целей через структурированный процесс</p>
+                    <div class="text-2xl font-light mb-4">от 4000 ₽</div>
+                    <button onclick="openBookingModal('coaching')" class="w-full bg-brand-red text-white py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                        Записаться
+                    </button>
+                </div>
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-xl font-medium mb-4">Разбор через Таро Тота</h3>
+                    <p class="text-brand-gray mb-6">Структурированный анализ ситуации через систему символов</p>
+                    <div class="text-2xl font-light mb-4">от 2500 ₽</div>
+                    <button onclick="openBookingModal('tarot')" class="w-full bg-brand-red text-white py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                        Записаться
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="bg-gray-50 p-12 rounded-lg">
+                <h2 class="text-2xl font-medium mb-4">Чек-лист: как правильно сформулировать запрос</h2>
+                <p class="text-brand-gray mb-8">Чтобы сессия дала максимальный результат</p>
+                <form onsubmit="submitLeadForm(event)" class="max-w-md mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Ваш email" required class="flex-1 px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-brand-red">
+                        <button type="submit" class="bg-brand-red text-white px-6 py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                            Получить чек-лист
+                        </button>
+                    </div>
+                    <label class="flex items-center justify-center mt-4 text-sm text-brand-gray">
+                        <input type="checkbox" required class="mr-2">
+                        Согласен на обработку персональных данных
+                    </label>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-light mb-8">Обо мне</h2>
+            <div class="text-lg leading-relaxed space-y-4">
+                <p>15 лет практики в области психологического консультирования и коучинга.</p>
+                <p>Авторская методика, объединяющая классические подходы с современными техниками.</p>
+                <p><strong>Сильные стороны:</strong> структурность, этичность, конфиденциальность.</p>
+                <p class="text-brand-gray">Работаю только с запросами, где могу гарантировать результат.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Schedule -->
+    <section id="contact" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-light text-center mb-12">Контакты и расписание</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-medium mb-6">Ближайшие окна</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 border rounded">
+                            <div>
+                                <div class="font-medium">Понедельник, 15 января</div>
+                                <div class="text-brand-gray">14:00 - 15:30</div>
+                            </div>
+                            <button onclick="bookSlot('mon-14')" class="bg-brand-red text-white px-4 py-2 rounded hover:bg-brand-red-hover transition-colors">
+                                Забронировать
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-center p-4 border rounded">
+                            <div>
+                                <div class="font-medium">Среда, 17 января</div>
+                                <div class="text-brand-gray">16:00 - 17:30</div>
+                            </div>
+                            <button onclick="bookSlot('wed-16')" class="bg-brand-red text-white px-4 py-2 rounded hover:bg-brand-red-hover transition-colors">
+                                Забронировать
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-center p-4 border rounded">
+                            <div>
+                                <div class="font-medium">Пятница, 19 января</div>
+                                <div class="text-brand-gray">10:00 - 11:30</div>
+                            </div>
+                            <button onclick="bookSlot('fri-10')" class="bg-brand-red text-white px-4 py-2 rounded hover:bg-brand-red-hover transition-colors">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-medium mb-6">Связаться со мной</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <span class="text-brand-red mr-4">📱</span>
+                            <div>
+                                <div class="font-medium">+7 (XXX) XXX-XX-XX</div>
+                                <div class="text-brand-gray">WhatsApp, Telegram</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-brand-red mr-4">✉️</span>
+                            <div>
+                                <div class="font-medium">elena@top-trening.com</div>
+                                <div class="text-brand-gray">Ответ в течение 24 часов</div>
+                            </div>
+                        </div>
+                    </div>
+                    <form onsubmit="submitContactForm(event)" class="mt-8 space-y-4">
+                        <input type="text" placeholder="Ваше имя" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-brand-red">
+                        <input type="tel" placeholder="Телефон" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-brand-red">
+                        <textarea placeholder="Ваш запрос" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-brand-red resize-none"></textarea>
+                        <button type="submit" class="w-full bg-brand-red text-white py-3 rounded font-medium hover:bg-brand-red-hover transition-colors">
+                            Отправить сообщение
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <span class="text-xl font-semibold">Точка</span>
+                    <span class="red-dot text-xl font-bold mx-1">•</span>
+                    <span class="text-xl font-semibold">Опоры</span>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#services" class="hover:text-brand-red transition-colors">Услуги</a>
+                    <a href="#about" class="hover:text-brand-red transition-colors">Обо мне</a>
+                    <a href="#contact" class="hover:text-brand-red transition-colors">Контакты</a>
+                    <a href="#" class="hover:text-brand-red transition-colors">Политика конфиденциальности</a>
+                </div>
+            </div>
+            <div class="text-center mt-4 text-sm text-gray-400">
+                © 2024 Точка.Опоры. Авторский проект Елены Ивановой
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openBookingModal(service) {
+            alert(`Запись на ${service}. В реальной версии откроется форма записи или переход в мессенджер.`);
+        }
+
+        function bookSlot(slot) {
+            alert(`Бронирование слота ${slot}. В реальной версии откроется форма подтверждения.`);
+        }
+
+        function submitLeadForm(event) {
+            event.preventDefault();
+            alert('Спасибо! Чек-лист отправлен на ваш email.');
+            event.target.reset();
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            alert('Сообщение отправлено. Свяжусь с вами в течение 24 часов.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a58f7595d8137f',t:'MTc1NzA3MzU2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
